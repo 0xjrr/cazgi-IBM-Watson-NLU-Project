@@ -68,7 +68,7 @@ app.get("/url/sentiment", (req,res) => {
             responseResults= analysisResults.result.sentiment.document;
             console.log(responseResults)
             console.log(typeof responseResults)
-            return res.send(`text sentiment for \"${req.query.text}\": 
+            return res.send(`text sentiment for \"${req.query.url}\": 
             Score: ${responseResults.score}, 
             Sentiment: ${responseResults.label}`);
         })
