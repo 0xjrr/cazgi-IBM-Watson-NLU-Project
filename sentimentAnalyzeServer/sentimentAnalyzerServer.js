@@ -12,16 +12,16 @@ app.get("/",(req,res)=>{
 
 app.get("/url/emotion", (req,res) => {
     console.log(Object.getOwnPropertyNames(req))
-    console.log(req.query.text)
+    console.log(req.query.url)
     const nluInstance = getNLUInstance()
     console.log(typeof nluInstance)
     console.log(Object.getOwnPropertyNames(nluInstance))
     const analyzeParams = {
+        'url': req.query.url,
         'features': {
             'emotion': {}
 
         },
-        'text': req.query.text
     };
     nluInstance.analyze(analyzeParams)
         .then((analysisResults,responseResults) => {
@@ -48,18 +48,18 @@ app.get("/url/emotion", (req,res) => {
 app.get("/url/sentiment", (req,res) => {
     console.log(Object.getOwnPropertyNames(req))
 
-    console.log(req.query.text)
+    console.log(req.query.url)
     const nluInstance = getNLUInstance()
 
     console.log(typeof nluInstance)
     console.log(Object.getOwnPropertyNames(nluInstance))
     let responseResults;
     const analyzeParams = {
+        'url': req.query.url,
         'features': {
             'sentiment': {}
 
         },
-        'text': req.query.text
     };
     
     nluInstance.analyze(analyzeParams)
