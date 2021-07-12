@@ -68,9 +68,7 @@ app.get("/url/sentiment", (req,res) => {
             responseResults= analysisResults.result.sentiment.document;
             console.log(responseResults)
             console.log(typeof responseResults)
-            return res.send(`text sentiment for \"${req.query.url}\": 
-            Score: ${responseResults.score}, 
-            Sentiment: ${responseResults.label}`);
+            return res.send(responseResults.label);
         })
         .catch(err => {
             console.log('error:', err);
@@ -139,9 +137,7 @@ app.get("/text/sentiment", (req,res) => {
             responseResults= analysisResults.result.sentiment.document;
             console.log(responseResults)
             console.log(typeof responseResults)
-            return res.send(`text sentiment for \"${req.query.text}\": 
-            Score: ${responseResults.score}, 
-            Sentiment: ${responseResults.label}`);
+            return res.send(responseResults.label);
         })
         .catch(err => {
             console.log('error:', err);
